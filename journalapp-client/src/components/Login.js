@@ -3,8 +3,8 @@ function Login(){
     return (
         <div>
             <form className={"form"}>
-                <input type={text} name="username"/>
-                <input type={password} name="password"/>
+                <input type="text" name="username"/>
+                <input type="password" name="password"/>
                 <button type="submit">Login</button>
             </form>
         </div>
