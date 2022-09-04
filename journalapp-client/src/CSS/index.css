@@ -1,0 +1,56 @@
+h1{
+    margin-top: 30px;
+    text-align: center;
+    }
+    
+.form > input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: large;
+  }
+  
+  .form > button{
+    background-color: rgb(255, 118, 6);
+    color: white;
+    padding: 14px 40px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 3px;
+    width: 100%;
+    text-decoration: none;
+    font-style: bold;
+    font-size: large;
+    display: inline-block;
+  }
+  
+  .form > button:hover, .form > button:active{
+    background-color: #9704aa;
+  }
+
+  .container{
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+  }
+
+  #createAccount{
+    background-color: #fc766aff;
+    color: white;
+    padding: 8px 12px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 5px;
+    text-decoration: none;
+    font-style: bold;
+    display: inline-block;
+  }
+
+  #createAccount:hover, #createAccount:active #createAccount:visited {
+    background-color: #9704aa;
+  }

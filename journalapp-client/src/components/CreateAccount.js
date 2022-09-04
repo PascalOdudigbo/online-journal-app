@@ -3,6 +3,7 @@ import React from "react";
 function CreateAccount(){
     return (
         <div>
+            <h1>CREATE ACCOUNT</h1>
             <form className="form">
                 <input type={"text"} name="username" placeholder="Username"/>
                 <input type={"email"} name="email" placeholder="Email"/>
