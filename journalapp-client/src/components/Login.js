@@ -8,7 +8,7 @@ function Login(){
                 <input type="password" name="password"/>
                 <Link to={'forgot-password'}>forgot password?</Link>
                 <button type="submit">Login</button>
-                <Link to={'signup'}>Create Account</Link>
+                <Link to={'create-account'}>Create Account</Link>
             </form>
         </div>
     );
