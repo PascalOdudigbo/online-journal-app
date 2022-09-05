@@ -7,5 +7,19 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/create-account/" do
-    User.all.findBy
+    existingUser = User.all.find_by(email: params[:email])
+
+    if existingUser.length > 0
+      response = {response: "User already Exists"}
+      response.to_json
+    else
+      newUser = User.create(
+        username: params[:username], 
+        email: params[:email], 
+        recovery_question: params[:recovery_question],
+        answer: params[:answer], 
+        password: params[:password]
+      )
+      newUser.to_json
+    end
 end
