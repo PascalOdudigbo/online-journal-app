@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-//import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Alert from "./Alert";
 
 function CreateAccount(){
     const url = "http://localhost:9292";
-    //const history = useNavigate();
+    const history = useNavigate();
 
     const[username, setUsername] = useState("");
     const[email, setEmail] = useState("");
@@ -33,16 +33,16 @@ function CreateAccount(){
     function handleCreateAccountAlert(responseData = {}){
         if(Object.values(responseData)[0] === "User already Exists"){
             <Alert type="error" message="User email already exists, please Login!"/>
-            
+            alert("User email already exists, please Login!")
+            history("/")   
         }
         else{
             <Alert type="success" message="Account Created successfully"/>
-            
         }
     }
 
-    function handleCreateAccount(e){
-        e.preventDefault()
+    function handleCreateAccount(event){
+        event.preventDefault()
         const newUser = {
             username: username,
             email: email,
@@ -50,7 +50,7 @@ function CreateAccount(){
             answer: answer.toLowerCase(), 
             password: password
         }
-        fetch(`${url}/createaccount`, {
+        fetch(`${url}/create-account`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

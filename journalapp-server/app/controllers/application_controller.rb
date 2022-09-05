@@ -8,10 +8,17 @@ class ApplicationController < Sinatra::Base
 
   post "/login" do
     user = User.find_by(username: params[:username], password: params[:password])
-    user.to_json
+
+    if user != nil
+      user.to_json(only: [:id, :username, :email])
+    else
+      response = {response: "Invalid Username or Password"}
+      response.to_json
+    end
+
   end
 
-  post "/createaccount" do
+  post "/create-account" do
     existingUser = User.find_by(email: params[:email])
 
     if existingUser != nil
@@ -25,7 +32,7 @@ class ApplicationController < Sinatra::Base
         answer: params[:answer], 
         password: params[:password]
       )
-      newUser.to_json
+      newUser.to_json(only: [:id, :username, :email])
     end
   end
 end
