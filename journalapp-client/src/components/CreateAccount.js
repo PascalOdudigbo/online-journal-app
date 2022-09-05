@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import Alert from "./Alert";
+//import Alert from "./Alert";
 
 function CreateAccount(){
     const url = "http://localhost:9292";
@@ -32,12 +32,13 @@ function CreateAccount(){
 
     function handleCreateAccountAlert(responseData = {}){
         if(Object.values(responseData)[0] === "User already Exists"){
-            <Alert type="error" message="User email already exists, please Login!"/>
+            //<Alert type="error" message="User email already exists, please Login!"/>
             alert("User email already exists, please Login!")
             history("/")   
         }
         else{
-            <Alert type="success" message="Account Created successfully"/>
+           // <Alert type="success" message="Account Created successfully"/>
+           alert("Account Created successfully!")
         }
     }
 
@@ -62,13 +63,13 @@ function CreateAccount(){
     }
     return (
         <div>
-            <h1>CREATE ACCOUNT</h1>
+            <h2>CREATE ACCOUNT</h2>
             <form className="form" onSubmit={handleCreateAccount}>
-                <input type={"text"} name="username" placeholder="Username" value={username} onChange={handleOnChange}/>
-                <input type={"email"} name="email" placeholder="Email" value={email} onChange={handleOnChange}/>
-                <input type={"text"} name="recoveryQuestion" placeholder="Recovery Question" value={recoveryQuestion} onChange={handleOnChange}/>
-                <input type={"text"} name="recoveryQuestionAnswer" placeholder="Answer" value={answer} onChange={handleOnChange}/>
-                <input type={"password"} name="password" placeholder="Password" value={password} onChange={handleOnChange}/>
+                <input type={"text"} name="username" placeholder="Username" value={username} required onChange={handleOnChange}/>
+                <input type={"email"} name="email" placeholder="Email" value={email} required onChange={handleOnChange}/>
+                <input type={"text"} name="recoveryQuestion" placeholder="Recovery Question" value={recoveryQuestion} required onChange={handleOnChange}/>
+                <input type={"text"} name="recoveryQuestionAnswer" placeholder="Answer" value={answer} required onChange={handleOnChange}/>
+                <input type={"password"} name="password" placeholder="Password" value={password} required onChange={handleOnChange}/>
                 <button type="submit">Submit</button> 
             </form>
         </div>

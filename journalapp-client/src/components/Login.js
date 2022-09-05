@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Alert from "./Alert";
 function Login(){
    
@@ -46,20 +46,18 @@ function Login(){
                 alert("Login successful!");
 
                 localStorage.setItem("loginData", JSON.stringify(userData));
-                //setLoginStatus(true);
                 localStorage.setItem("loginStatus", JSON.stringify(true));
 
-                //console.log(JSON.parse(localStorage.getItem("loginData")).username)
             }  
         });
     }
     return (
         <div>
-            <h1>LOGIN</h1>
+            <h2>LOGIN</h2>
             <form className={"form"} onSubmit={handleOnSubmit}>
-                <input type="text" name="username" placeholder="Username" value={username} onChange={handleOnChange}/>
-                <input type="password" name="password" placeholder="Password" value={password} onChange={handleOnChange}/>
-                <Link to={'forgot-password'}>forgot password?</Link>
+                <input type="text" name="username" placeholder="Username" value={username} required onChange={handleOnChange}/>
+                <input type="password" name="password" placeholder="Password" value={password} required onChange={handleOnChange}/>
+                <Link to={'forgot-password/1'}>forgot password?</Link>
                 <button type="submit">Login</button>
                 <div className="container">
                     <Link id="createAccount" to={'create-account'}>Create Account</Link>

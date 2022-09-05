@@ -35,4 +35,22 @@ class ApplicationController < Sinatra::Base
       newUser.to_json(only: [:id, :username, :email])
     end
   end
+
+  post "/forgot-password" do 
+    user = User.find_by(email: params[:email])
+    if user != nil
+      user.to_json(only: [:id, :recovery_question, :answer])
+    else
+      response = {response: "This email isn't connected to any user account!"}
+      response.to_json
+    end
+  end
+
+  patch "/update-password/:id" do
+    user = User.find(params[:id])
+    if user != nil
+      user.update(password: params[:password])
+      user.to_json(only: [:id, :username, :email])
+    end
+  end
 end
