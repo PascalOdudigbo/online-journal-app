@@ -6,10 +6,15 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
-  post "/create-account/" do
-    existingUser = User.all.find_by(email: params[:email])
+  post "/login" do
+    user = User.find_by(username: params[:username], password: params[:password])
+    user.to_json
+  end
 
-    if existingUser.length > 0
+  post "/createaccount" do
+    existingUser = User.find_by(email: params[:email])
+
+    if existingUser != nil
       response = {response: "User already Exists"}
       response.to_json
     else
@@ -22,4 +27,5 @@ class ApplicationController < Sinatra::Base
       )
       newUser.to_json
     end
+  end
 end

@@ -1,7 +1,10 @@
 import React, {useState} from "react";
+//import {useNavigate} from "react-router-dom";
+import Alert from "./Alert";
 
 function CreateAccount(){
-    const url = "http://localhost:9292"
+    const url = "http://localhost:9292";
+    //const history = useNavigate();
 
     const[username, setUsername] = useState("");
     const[email, setEmail] = useState("");
@@ -27,16 +30,27 @@ function CreateAccount(){
         }  
       }
 
+    function handleCreateAccountAlert(responseData = {}){
+        if(Object.values(responseData)[0] === "User already Exists"){
+            <Alert type="error" message="User email already exists, please Login!"/>
+            
+        }
+        else{
+            <Alert type="success" message="Account Created successfully"/>
+            
+        }
+    }
+
     function handleCreateAccount(e){
         e.preventDefault()
         const newUser = {
             username: username,
             email: email,
-            recovery_question: recoveryQuestion,
-            answer: answer, 
+            recovery_question: recoveryQuestion.toLowerCase(),
+            answer: answer.toLowerCase(), 
             password: password
         }
-        fetch(`${url}+/create-account/`, {
+        fetch(`${url}/createaccount`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -44,17 +58,17 @@ function CreateAccount(){
             body: JSON.stringify(newUser)
         })
         .then(response => response.json())
-        .then(responseData => console.log(responseData))
+        .then(responseData => handleCreateAccountAlert(responseData));
     }
     return (
         <div>
             <h1>CREATE ACCOUNT</h1>
             <form className="form" onSubmit={handleCreateAccount}>
-                <input type={"text"} name="username" placeholder="Username" onChange={handleOnChange}/>
-                <input type={"email"} name="email" placeholder="Email" onChange={handleOnChange}/>
-                <input type={"text"} name="recoveryQuestion" placeholder="Recovery Question" onChange={handleOnChange}/>
-                <input type={"text"} name="recoveryQuestionAnswer" placeholder="Answer" onChange={handleOnChange}/>
-                <input type={"password"} name="password" placeholder="Password" onChange={handleOnChange}/>
+                <input type={"text"} name="username" placeholder="Username" value={username} onChange={handleOnChange}/>
+                <input type={"email"} name="email" placeholder="Email" value={email} onChange={handleOnChange}/>
+                <input type={"text"} name="recoveryQuestion" placeholder="Recovery Question" value={recoveryQuestion} onChange={handleOnChange}/>
+                <input type={"text"} name="recoveryQuestionAnswer" placeholder="Answer" value={answer} onChange={handleOnChange}/>
+                <input type={"password"} name="password" placeholder="Password" value={password} onChange={handleOnChange}/>
                 <button type="submit">Submit</button> 
             </form>
         </div>
