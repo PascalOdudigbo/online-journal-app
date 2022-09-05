@@ -6,4 +6,6 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  post "/create-account/" do
+    User.all.findBy
 end
