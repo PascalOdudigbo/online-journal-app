@@ -43,8 +43,6 @@ function ForgotPassword(){
         .then(response => response.json())
         .then(data => {
             if(Object.values(data)[0] === "This email isn't connected to any user account!"){
-
-                //<Alert type="error" message="Invalid Username or Password"/>
                 alert("This email isn't connected to any user account!");
             }
             else{

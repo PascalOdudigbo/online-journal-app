@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import React, {useState} from "react";
-import Alert from "./Alert";
 function Login(){
    
     const url = "http://localhost:9292";
@@ -36,16 +35,12 @@ function Login(){
         .then(userData => {
             console.log(userData)
             if(Object.values(userData)[0] === "Invalid Username or Password"){
-
-                //<Alert type="error" message="Invalid Username or Password"/>
                 alert("Invalid Username or Password!");
             }
             else{
-
-                //<Alert type="success" message="Login successfully"/> 
                 alert("Login successful!");
 
-                localStorage.setItem("loginData", JSON.stringify(userData));
+                localStorage.setItem("userData", JSON.stringify(userData));
                 localStorage.setItem("loginStatus", JSON.stringify(true));
 
             }  
