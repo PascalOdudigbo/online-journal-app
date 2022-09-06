@@ -1,35 +1,25 @@
-import React, {useEffect, useState} from "react";
-import { useNavigate, Link, Routes, Router} from "react-router-dom";
+import React from "react";
+import Journal from "./Journal"
+import Search from "./Search";
 
-let userData = JSON.parse(localStorage.getItem("userData"));
-const loginStatus = localStorage.getItem("loginStatus");
-function JournalList(){
-    const url = "http://localhost:9292";
-    const history = useNavigate();
-    const[allJournals, setAllJournals] = useState([])
-    useEffect(()=>{
-        if(loginStatus === "true"){
-            userData = JSON.parse(localStorage.getItem("userData"));
-            fetch(`${url}/journal-list/${userData.id}`)
-            .then(response => response.json())
-            .then(addresses => setAllJournals(addresses));
-        }
-        else{
-            history("/")
-        }
-    }, [])
-    
+function JournalList({allJournals, handleFilteredData}){
+    console.log(typeof allJournals[0]?.created_at)
         return(
-            <div>
-                <h2>WELCOME {userData.username.toUpperCase()}</h2>
-                <div id= "logoutContainer">
-                    <Link id={"logout"} to={'/'} onClick={()=>{
-                        localStorage.clear()
-                        history("/")
-                    }}>logout</Link>
-                </div>
+                <div>
+                    <Search allJournals={allJournals} handleSearchData={handleFilteredData} />
+                    <h2>All Journal Entries</h2>
 
-            </div>
+                    {
+                        allJournals?.map((journal)=> <Journal
+                            key={journal.id} 
+                            title={journal.title}
+                            body={journal.body}
+                            createdAt={journal.created_at.slice(0, 10)}
+                            updatedAt={journal.updated_at.slice(0, 10)}
+                            ></Journal>
+                        )
+                    }
+                </div>
         )
 }
 
