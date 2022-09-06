@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, {useState} from "react";
 function Login(){
    
     const url = "http://localhost:9292";
     const[username, setUsername] = useState("");
     const[password, setPassword] = useState("");
-    //const[userData, setUserData] = useState({});
-    //const[loginStatus, setLoginStatus] = useState(false);
+    const history = useNavigate()
 
     function handleOnChange(event){
         if (event.target.name === "username")
@@ -42,6 +41,7 @@ function Login(){
 
                 localStorage.setItem("userData", JSON.stringify(userData));
                 localStorage.setItem("loginStatus", JSON.stringify(true));
+                history("/all-journals")
 
             }  
         });

@@ -79,4 +79,31 @@ h2{
     background-color: #9704aa;
   }
 
+  /* logout link */
+
+  /* Link container */
+  #logoutContainer{
+    display: flex;  
+    justify-content: right;  
+    align-items: right;  
+    margin-top: -125px;
+    margin-right: 10px;
+  }
+
+  #logout{
+    background-color: rgb(255, 6, 6);
+    color: white;
+    padding: 8px 12px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 3px;
+    text-decoration: none;
+    font-style: bold;
+    display: inline-block;
+  }
+  
+  #logout:hover, #logout:active {
+    background-color: #aa1d04;
+  }
  

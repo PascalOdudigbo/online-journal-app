@@ -53,4 +53,10 @@ class ApplicationController < Sinatra::Base
       user.to_json(only: [:id, :username, :email])
     end
   end
+
+  get "/journal-list/:id" do
+    user = User.find(params[:id])
+    user.journals.to_json
+  end
+
 end

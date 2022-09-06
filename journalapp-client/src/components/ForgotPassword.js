@@ -48,7 +48,7 @@ function ForgotPassword(){
             else{
                 localStorage.setItem("userData", JSON.stringify(data));
                 userData = JSON.parse(localStorage.getItem("userData"))
-                console.log(userData.recovery_question)
+                //console.log(userData.recovery_question)
                 history("/forgot-password/2")
             }  
         });
