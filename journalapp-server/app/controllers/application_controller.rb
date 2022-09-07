@@ -64,4 +64,10 @@ class ApplicationController < Sinatra::Base
     journal.to_json
   end
 
+  put "/edit-entry/:id" do
+    journal = Journal.find(params[:id])
+    journal.update(title: params[:title], body: params[:body], user_id: params[:user_id])
+    journal.to_json
+  end
+
 end

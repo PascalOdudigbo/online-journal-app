@@ -1,8 +1,9 @@
 import React from "react";
 import Journal from "./Journal"
 import Search from "./Search";
+import {Link} from "react-router-dom";
 
-function JournalList({allJournals, handleFilteredData}){
+function JournalList({allJournals, setCurrentItem, handleFilteredData, handleDelete}){
         return(
                 <div className="jContainer">
                     <Search allJournals={allJournals} handleSearchData={handleFilteredData} />
@@ -15,6 +16,8 @@ function JournalList({allJournals, handleFilteredData}){
                             body={journal.body}
                             createdAt={journal.created_at.slice(0, 10)}
                             updatedAt={journal.updated_at.slice(0, 10)}
+                            editlink= {<Link className={"editlink"} to={'/all-journals/edit-journal-entry'}  onClick={()=>setCurrentItem(journal)}>Edit</Link>}
+                            deletelink={<button className={"deletebutton"} onClick={()=>{handleDelete(journal.id)}}>Delete</button>}
                             ></Journal>
                         )
                     }
