@@ -3,13 +3,12 @@ import Journal from "./Journal"
 import Search from "./Search";
 
 function JournalList({allJournals, handleFilteredData}){
-    console.log(typeof allJournals[0]?.created_at)
         return(
-                <div>
+                <div className="jContainer">
                     <Search allJournals={allJournals} handleSearchData={handleFilteredData} />
-                    <h2>All Journal Entries</h2>
+                    <h4>All Journal Entries</h4>
 
-                    {
+                    {/* {
                         allJournals?.map((journal)=> <Journal
                             key={journal.id} 
                             title={journal.title}
@@ -18,7 +17,7 @@ function JournalList({allJournals, handleFilteredData}){
                             updatedAt={journal.updated_at.slice(0, 10)}
                             ></Journal>
                         )
-                    }
+                    } */}
                 </div>
         )
 }

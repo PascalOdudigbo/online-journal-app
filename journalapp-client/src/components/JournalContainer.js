@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate, Link, Routes, Route} from "react-router-dom";
 import JournalList from "./JournalList";
+import NavBar from "./NavBar";
 
 
 let userData = JSON.parse(localStorage.getItem("userData"));
@@ -21,7 +22,7 @@ function JournalContainer(){
                 console.log(err);
             })
         }else{
-            const filteredJournals = allJournals.filter((journal)=> journal.name.toLowerCase().includes(searchData.toLowerCase()));
+            const filteredJournals = allJournals?.filter((journal)=> journal?.title.toLowerCase().includes(searchData?.toLowerCase()));
             setAllJournals(filteredJournals);
         }
         
@@ -45,7 +46,8 @@ function JournalContainer(){
 
         return(
             <div>
-                <h2>WELCOME {userData.username.toUpperCase()}</h2>
+                <NavBar/>
+                <h2 id="welcome">WELCOME {userData.username.toUpperCase()}</h2>
                 <div id= "logoutContainer">
                     <Link id={"logout"} to={'/'} onClick={()=>{
                         localStorage.clear()
