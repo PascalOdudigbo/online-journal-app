@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate, Link, Routes, Route} from "react-router-dom";
+import AddEntryForm from "./AddEntryForm";
 import JournalList from "./JournalList";
 import NavBar from "./NavBar";
 
@@ -28,6 +29,11 @@ function JournalContainer(){
         
     }
 
+    function handleAddEntry(newEntryData){
+        setAllJournals([...allJournals, newEntryData]);
+        history("all-journals");
+    }
+
 
     useEffect(()=>{
         if(loginStatus === "true"){
@@ -54,7 +60,10 @@ function JournalContainer(){
                         history("/")
                     }}>logout</Link>
                 </div>
-                <JournalList allJournals={allJournals} handleFilteredData={handleFilteredData}/>
+                <Routes>
+                    <Route path="/all-journals" element={<JournalList allJournals={allJournals} handleFilteredData={handleFilteredData}/>}/>
+                    <Route path="/new-journal-entry" element={<AddEntryForm handleAddEntry={handleAddEntry}/>}/>
+                </Routes>
                 
             </div>
         )

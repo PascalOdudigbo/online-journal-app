@@ -6,14 +6,14 @@ function NavBar(){
     <div className={"navbar"}>
         <NavLink
             className={"link"}
-            to={"/"}
+            to={'all-journals'}
         >
             All Entries   
         </NavLink>
 
         <NavLink
             className={"link"}
-            to={"/"}
+            to={'new-journal-entry'}
         >
         Add Entry
         </NavLink>

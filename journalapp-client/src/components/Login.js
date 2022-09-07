@@ -41,7 +41,7 @@ function Login(){
 
                 localStorage.setItem("userData", JSON.stringify(userData));
                 localStorage.setItem("loginStatus", JSON.stringify(true));
-                history("/all-journals")
+                history("/all-journals/all-journals")
 
             }  
         });

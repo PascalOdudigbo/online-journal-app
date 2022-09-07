@@ -59,4 +59,9 @@ class ApplicationController < Sinatra::Base
     user.journals.to_json
   end
 
+  post "/add-entry" do
+    journal = Journal.create(title: params[:title], body: params[:body], user_id: params[:user_id])
+    journal.to_json
+  end
+
 end

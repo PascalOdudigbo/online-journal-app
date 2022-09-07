@@ -8,7 +8,7 @@ function JournalList({allJournals, handleFilteredData}){
                     <Search allJournals={allJournals} handleSearchData={handleFilteredData} />
                     <h4>All Journal Entries</h4>
 
-                    {/* {
+                    {
                         allJournals?.map((journal)=> <Journal
                             key={journal.id} 
                             title={journal.title}
@@ -17,7 +17,7 @@ function JournalList({allJournals, handleFilteredData}){
                             updatedAt={journal.updated_at.slice(0, 10)}
                             ></Journal>
                         )
-                    } */}
+                    }
                 </div>
         )
 }
