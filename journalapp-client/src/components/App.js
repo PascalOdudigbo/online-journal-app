@@ -14,7 +14,7 @@ function App() {
       <Route path="/" element={ <Login/>}/>
       <Route path="create-account" element={<CreateAccount/>}/>
       <Route path='forgot-password/*' element ={<ForgotPassword/>}/>
-      <Route path='all-journals/*' element ={<JournalContainer/>}/>
+      <Route path='home/*' element ={<JournalContainer/>}/>
 
 
       </Routes>

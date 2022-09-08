@@ -36,7 +36,7 @@ function AddEntryForm({handleAddEntry}) {
 
   return (
     <div className="ui segment">
-      <h2>ADD JOURNAL ENTRY</h2>
+      <h2 className="addEntryText">ADD JOURNAL ENTRY</h2>
         <form className={"form"} onSubmit={handleOnSubmit}>
             <input type="text" name="title" placeholder="Title" value={title} onChange={handleOnChange}/>
             <textarea rows = "25" cols = "60" name = "body" value={body} onChange={handleOnChange}/>

@@ -56,7 +56,7 @@ function ForgotPassword(){
 
     return(
         <div>
-            <h2>FORGOT PASSWORD</h2>
+            <h2 className="forgotPassword">FORGOT PASSWORD</h2>
             <Routes>
 
             <Route path='/1' element ={

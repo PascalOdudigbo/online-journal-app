@@ -70,4 +70,10 @@ class ApplicationController < Sinatra::Base
     journal.to_json
   end
 
+  delete "/delete-entry/:id" do
+    journal = Journal.find(params[:id])
+    journal.destroy
+    journal.to_json
+  end
+
 end

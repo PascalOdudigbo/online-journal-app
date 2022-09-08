@@ -32,7 +32,7 @@ function Login(){
         })
         .then(response => response.json())
         .then(userData => {
-            console.log(userData)
+            //console.log(userData)
             if(Object.values(userData)[0] === "Invalid Username or Password"){
                 alert("Invalid Username or Password!");
             }
@@ -41,22 +41,19 @@ function Login(){
 
                 localStorage.setItem("userData", JSON.stringify(userData));
                 localStorage.setItem("loginStatus", JSON.stringify(true));
-                history("/all-journals/all-journals")
-
+                history("/home/all-journals")
             }  
         });
     }
     return (
         <div>
-            <h2>LOGIN</h2>
+            <h2 className="loginText">LOGIN</h2>
             <form className={"form"} onSubmit={handleOnSubmit}>
                 <input type="text" name="username" placeholder="Username" value={username} required onChange={handleOnChange}/>
                 <input type="password" name="password" placeholder="Password" value={password} required onChange={handleOnChange}/>
-                <Link to={'forgot-password/1'}>forgot password?</Link>
+                <Link className={"forgotPasswordLink"} to={'forgot-password/1'}>forgot password?</Link>
                 <button type="submit">Login</button>
-                <div className="container">
-                    <Link id="createAccount" to={'create-account'}>Create Account</Link>
-                </div>
+                <Link className={"createAccountLink"} id="createAccount" to={'create-account'}>Create Account</Link>
             </form>
         </div>
     );

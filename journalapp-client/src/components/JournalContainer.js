@@ -37,14 +37,13 @@ function JournalContainer(){
     }
 
     function handleEntryDelete(id){
-        //console.log("called deletion");
-        //const targetAddressId = event.target.parentNode.parentNode.id;
-        fetch(`https://fathomless-garden-99838.herokuapp.com/addresses/${id}`, {
+        fetch(`${url}/delete-entry/${id}`, {
             method: "DELETE"
         })
-        // const newAddressData = addressData.filter(address=> address.id !== id);
-        // setAddressData(newAddressData);
+        const filteredJournals = allJournals?.filter((journal)=> journal?.id !== id);
+        setAllJournals(filteredJournals);
     }
+    
     function handleEditEntry(){
         fetch(`${url}/journal-list/${userData.id}`)
         .then(response => response.json())
@@ -57,7 +56,7 @@ function JournalContainer(){
     }
 
 
-    useEffect(()=>{
+    useEffect((history = useNavigate)=>{
         if(loginStatus === "true"){
             userData = JSON.parse(localStorage.getItem("userData"));
             fetch(`${url}/journal-list/${userData.id}`)
@@ -75,9 +74,9 @@ function JournalContainer(){
         return(
             <div>
                 <NavBar/>
-                <h2 id="welcome">WELCOME {userData.username.toUpperCase()}</h2>
-                <div id= "logoutContainer">
-                    <Link id={"logout"} to={'/'} onClick={()=>{
+                <div className= "logoutContainer">
+                    <h2 className="welcome">WELCOME {userData?.username.toUpperCase()}</h2>
+                    <Link className={"logout"} to={'/'} onClick={()=>{
                         localStorage.clear()
                         history("/")
                     }}>logout</Link>

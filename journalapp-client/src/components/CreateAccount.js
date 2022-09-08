@@ -36,6 +36,7 @@ function CreateAccount(){
         }
         else{
            alert("Account Created successfully!")
+           history("/")   
         }
     }
 
@@ -60,7 +61,7 @@ function CreateAccount(){
     }
     return (
         <div>
-            <h2>CREATE ACCOUNT</h2>
+            <h2 className="createAccount">CREATE ACCOUNT</h2>
             <form className="form" onSubmit={handleCreateAccount}>
                 <input type={"text"} name="username" placeholder="Username" value={username} required onChange={handleOnChange}/>
                 <input type={"email"} name="email" placeholder="Email" value={email} required onChange={handleOnChange}/>
