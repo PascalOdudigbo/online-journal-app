@@ -56,7 +56,7 @@ class ApplicationController < Sinatra::Base
 
   get "/journal-list/:id" do
     user = User.find(params[:id])
-    user.journals.to_json
+    user.journals.order(created_at: :desc).to_json
   end
 
   post "/add-entry" do
