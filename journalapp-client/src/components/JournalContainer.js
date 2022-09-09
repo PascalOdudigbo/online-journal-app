@@ -51,7 +51,7 @@ function JournalContainer(){
         .catch((err) => {
             console.log(err);
         })
-        history("/all-journals/all-journals")
+        history("/home/all-journals")
 
     }
 

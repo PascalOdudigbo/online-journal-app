@@ -1,14 +1,19 @@
 .navbar{
-    background-color: rgb(237, 226, 226);
+    //background-color: rgb(237, 226, 226);
     margin-top: 5px;
     padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    border: 2.5px solid #000000;
+    border-left: 0;
+    border-right: 0;
 
     .link{
         padding-left: 20px;
         padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         color: black;
         text-decoration: none;
     }

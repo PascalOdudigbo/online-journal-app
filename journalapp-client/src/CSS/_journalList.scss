@@ -4,10 +4,10 @@
     flex-direction: row;
 
     h4{
-        margin-left: 340px;
+        margin-left: 310px;
         margin-top: 30px;
-        font-size: 0.9em;
-        margin-bottom: 20px;
+        font-size: 1.2em;
+        margin-bottom: 50px;
     }
 
     .wrapper{
@@ -22,7 +22,7 @@
         }
 
         .search:hover, .search:focus {
-            border: 1.5px solid #009688;
+            border: 2px solid #009688;
             background-color: white;
           }
     }
@@ -32,14 +32,8 @@
 .myJournals{
     display: grid;
     grid-template-columns: auto auto auto;
-    // grid-template-rows: 100px 100px;
-    // grid-gap: 10px;
-    // background-color: #2196F3;
-    //padding: 10px;
     font-size: 0.5em;
     margin-left: 40px;
-
-   
 }
 
 .entryWrapper{
@@ -75,47 +69,51 @@
         padding: 10px;
         font-size: 1.5em;
         font-family: 'Nunito', sans-serif;
-
     }
 
     .editLink{
-        font-size: 1em;
+        font-size: 1.1em;
         width: 15%;
         margin-top: 30px;
         // padding-left: 25px;
         margin-bottom: 10px;
-        background-color: rgb(6, 143, 255);
-        color: white;
-        padding: 8px 12px;
+        background-color: white;
+        color: black;
+        padding: 8px 17px;
         border: 1px solid #333;
         border-radius: 5px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-    
     }
     
     .editLink:hover, .editLink:active .editLink:visited {
         background-color: #04aa36;
+        color: white;
     }
     
     .deleteButton{
         width: 30%;
         margin-top: 30px;
         margin-bottom: 10px;
-        background-color: rgb(255, 6, 6);
-        color: white;
-        padding: 8px 12px;
+        background-color: white;
+        color: black;
+        padding: 8px 10px;
         border: 1px solid #333;
         border-radius: 5px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-    
     }
     .deleteButton:hover, .deleteButton:active {
         background-color: #aa1d04;
+        color: white;
     }
     
 }
 
+.entryWrapper:hover, .entryWrapper:focus {
+    border: 2.5px solid #000000;
+    background-color: white;
+    color: black;
+  }
